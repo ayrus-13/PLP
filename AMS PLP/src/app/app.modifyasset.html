@@ -1,0 +1,72 @@
+<!--<h3>Update Product</h3>
+    <table>
+        <tr>
+            <td>Asset Id:</td>
+            <td>
+                <input type="number" [(ngModel)]="asset.assetId" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td>Asset Name:</td>
+            <td>
+                <input type="text" [(ngModel)]="asset.assetName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>
+                <input type="number" [(ngModel)]="asset.quantity" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="button" value="Update Asset" (click)="updateAsset()" />
+        </td>
+    </tr>
+</table>-->
+
+<h3 style="text-align: center;">Modify Assets</h3>
+
+<div class="card " style="height: 35rem;">
+    <div class = "card-wrapper">
+        <div class="row">
+          <div class="col-md-12 align-self-center" >
+<div class="card ">
+
+        <div class="card text-center" >
+        <div class="card-body " style="height: 25rem;">
+
+<form (ngSubmit)="updateAsset()" #modifyForm="ngForm">
+    <div class="form-group">
+
+  
+    <label for="assetId">Asset Id: {{currAsset.assetId}}</label>
+    </div>
+
+    <div class="form-group">
+                <label for="assetName">Asset Name:</label><br>
+                <input type="text" align="middle" name= "assetName" [(ngModel)]= currAsset.assetName #assetName=ngModel size="5" pattern="[A-Z]+$" placeholder="Enter Asset Name" required ><br>
+                <span *ngIf = "assetName.touched && assetName.invalid &&
+                (assetName.errors.required || assetName.errors.pattern)" class="alert-warning">
+                  Enter Valid Name
+                </span>
+    </div>
+    <div class="form-group">
+                  <label for="quantity">Quantity:</label><br>
+                   <input type="text" align="middle" name= "quantity" [(ngModel)]= currAsset.quantity #quantity=ngModel size="30" pattern="[0-9]+$" placeholder="Enter Quantity" required ><br>
+                  <span *ngIf = "quantity.touched && quantity.invalid &&
+                  (quantity.errors.required || quantity.errors.pattern)" class="alert-warning">
+                    Enter Valid Quantity
+                  </span>
+    </div>
+                       
+                       
+
+    <button type="submit" [disabled]="!modifyForm.form.valid" class="btn btn-success">Modify</button>
+
+                       
+                      </form>
+
+        </div></div></div></div></div></div>
+    
+        

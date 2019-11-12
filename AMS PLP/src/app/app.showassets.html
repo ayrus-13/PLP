@@ -1,0 +1,18 @@
+<h3>Show Assets</h3>
+<table border="1">
+    <tr>
+        <th>Asset Id</th>
+        <th>Asset Name</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let ass of asset">
+        <td>{{ass.assetId}}</td>
+        <td>{{ass.assetName}}</td>
+        <td>{{ass.quantity}}</td>
+        <td>
+            <button type="button" (click)="deleteAsset(ass.assetId)" >Delete</button>
+        </td>
+    </tr>
+</table>
+    

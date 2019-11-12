@@ -1,0 +1,51 @@
+<!--<h3>Search Assets</h3>
+
+<input type="number" [(ngModel)]="assetId" /><br>
+<button type="button" (click)=searchAsset() >Search</button>
+
+<hr>
+<div *ngIf="show">
+    <h5>Asset Details:</h5>
+    <table>
+        <tr>
+            <td>Asset Id: </td>
+            <td><input type="number" [value]="asset.assetId" disabled /><br></td>
+        </tr>
+        <tr>
+            <td>Asset Name:</td>
+            <td><input type="text" [value]="asset.assetName" disabled /><br></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="number" [value]="asset.quantity" disabled /></td>
+        </tr>
+    </table>
+</div>-->
+
+<div class="wrapper">
+    <div class="container card shadow-lg p-3 mb-5 bg-white rounded">
+            <br>
+            <h3>Look for Assets</h3><br>
+            
+            <form>
+                    <label>AssetId :</label>
+                    <input (blur)="validateId()" type="number"  [(ngModel)]="assetId" [ngModelOptions]="{standalone: true}" class="form-control col-md-5" id="assetId" placeholder="..." />
+                    <small *ngIf="idValid" style="color: red;">Invalid ID. Please enter an id between 1 to 999.</small>
+                    
+                    <input type="button" value="Search" (click)="searchAsset(assetId); show=true"/>
+                    <small *ngIf="idValid" style="color: red;">Invalid ID. Please enter an id between 1 to 999.</small>
+                </form>  
+            <table border="1" *ngIf="show">
+                <tr>
+                    <th>Asset Id</th>
+                    <th>Asset Name</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>{{asset.assetId}}</td>
+                    <td>{{asset.assetName}}</td>
+                    <td>{{asset.quantity}}</td>    
+                </tr>
+            </table>
+    </div>
+    </div>

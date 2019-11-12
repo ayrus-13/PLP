@@ -1,0 +1,22 @@
+<h3>Show Requests</h3>
+<table border="1">
+    <tr>
+        <th>Allocation Id</th>
+        <th>Asset Id</th>
+        <th>User Id</th>
+        <th>Quantity</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let all of allocationRequest">
+        <td>{{all.allocationId}}</td>
+        <td>{{all.asset.assetId}}</td>
+        <td>{{all.user.userId}}</td>
+        <td>{{all.aQuantity}}</td>
+        <td>{{all.status}}</td>
+        <td>
+            <button type="button" (click)="approveRequest(all.allocationId)" >Approve</button>
+            <button type="button" (click)="rejectRequest(all.allocationId)" >Reject</button>
+        </td>
+    </tr>
+</table>
+    

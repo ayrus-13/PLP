@@ -1,0 +1,55 @@
+<!--<h3>Add Asset</h3>
+<table>
+    <tr>
+        <td>Asset Id:</td>
+        <td>
+            <input type="number" [(ngModel)]="model.assetId" />
+        </td>
+    </tr>
+    <tr>
+        <td>Asset Name:</td>
+        <td>
+            <input type="text" [(ngModel)]="model.assetName" />
+        </td>
+    </tr>
+    <tr>
+        <td>Quantity:</td>
+        <td>
+            <input type="number" [(ngModel)]="model.quantity" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="Add Asset" (click)="addAsset()" />
+        </td>
+    </tr>
+</table>-->
+
+
+<div class="wrapper">
+
+    <div class="container ">
+    
+    <div class="container card shadow-lg p-3 mb-5 bg-white rounded">
+        <h3>Add Asset  </h3>
+      <form>
+        <label>AssetId :</label>
+        <input (blur)="validateId()" [(ngModel)]="asset.assetId" [ngModelOptions]="{standalone: true}" type="number" class="form-control col-md-5" id="assetId" placeholder="...">
+        <small *ngIf="idValid" style="color: red;">Invalid ID. Please enter an id between 1 to 999.</small>
+        <br>
+        <label>Asset Name :</label>
+        <input (blur)="validateName()" [(ngModel)]="asset.assetName" [ngModelOptions]="{standalone: true}" type="text" class="form-control col-md-5" id="assetName" placeholder="...">
+        <small *ngIf="nameValid" style="color: red;">Invalid Name.Character length should be between 3 and 20</small>
+        <br>
+        <label>Quantity :</label>
+        <input (blur)="validateQuantity(); enableButton()" [(ngModel)]="asset.quantity" [ngModelOptions]="{standalone: true}" type="number" class="form-control col-md-5" id="quantity" placeholder="...">
+        <small *ngIf="quantityValid" style="color: red;">Quantity limit exceeded.</small>
+        <br>
+        
+        <div class="col-md-3 offset-md-9">
+                <button [disabled]="!buttonFlag" type="button" class="confBtn btn btn-success" (click)="addAsset(asset)">ADD ASSET</button>
+            </div></form>
+            </div>
+            </div>
+            </div>
+            

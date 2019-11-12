@@ -1,0 +1,30 @@
+<div class="wrapper">
+
+    <div class="container ">
+    
+    <div class="container card shadow-lg p-3 mb-5 bg-white rounded">
+        <h3>Add Request  </h3>
+      <form>
+        <label>UserId :</label>
+        <input (blur)="validateUId(a.value)"  #a  type="number" class="form-control col-md-5"  placeholder="...">
+        <small *ngIf="userIdValid" style="color: red;">UserID should be between 1000 and 1999</small>
+        <br>
+        <label>AssetId :</label>
+        <input (blur)="validateAId(b.value)"  #b  type="number" class="form-control col-md-5"  placeholder="...">
+        <small *ngIf="assetIdValid" style="color: red;">Asset Id should be between 100 and 199</small>
+        <br>
+        <label>Quantity :</label>
+        <input (blur)="validateQuantity(); enableButton()" [(ngModel)]="allocationRequest.aQuantity" [ngModelOptions]="{standalone: true}" type="number" class="form-control col-md-5" id="aQuantity" placeholder="...">
+        <small *ngIf="quantityValid" style="color: red;">Quantity limit exceeded.</small>
+        <br>    
+        <label>Status :</label>
+        <input type="text" name="value" value = "Pending" disabled>
+        <br>
+        
+        
+        <div class="col-md-3 offset-md-9">
+                <button [disabled]="!buttonFlag" type="button" class="confBtn btn btn-success" (click)="addRequest(allocationRequest,a.value,b.value)">Submit Request</button>
+            </div></form>
+            </div>
+            </div>
+            </div>
